@@ -1,0 +1,19 @@
+<configuration>
+    <com>
+        <pearson>
+            <qa>
+                <bluesky>
+                <csg>
+                    <common>
+                        <useTrustingHttpClient>true</useTrustingHttpClient>
+                        <host>iqa.bluesky.lognllc.com</host>
+                        <apiKey>CSG apikey=77f29002-7a0d-11e3-be93-8a729cb7c09e</apiKey>
+                        <sessiontoken>sessiontoken=$sessiontoken</sessiontoken>
+                    </common>
+                </csg>
+                </bluesky>
+            </qa>
+        </pearson>
+    </com>
+</configuration>
+

@@ -1,0 +1,90 @@
+package com.pearson.qa.bluesky.csg.books.registeredBooks.executors;
+
+import com.google.inject.Inject;
+import com.pearson.qa.bluesky.csg.Utils.datastructures.ErrorResponse;
+import com.pearson.qa.bluesky.csg.books.registeredBooks.contexts.RegisteredBooksContext;
+import com.pearson.qa.bluesky.csg.books.registeredBooks.datastructures.RegisteredBooksResponsePayload;
+import com.pearson.qa.common.ziggyfw.executiondrivers.ExecutionDriver;
+import com.pearson.qa.common.ziggyfw.executors.Executor;
+import com.pearson.qa.common.ziggyfw.http.executors.HttpExecutor;
+import com.pearson.qa.common.ziggyfw.validators.Validator;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
+import javax.inject.Singleton;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by dcorrales on 2/24/14.
+ */
+
+@Singleton
+public class RegisteredBooksExecutor<T extends RegisteredBooksContext> implements Executor<T> {
+    private List<Validator<T>> validators;
+    private HttpExecutor<T> httpExecutor;
+
+    public RegisteredBooksExecutor() {
+        validators = new ArrayList<>();
+    }
+
+    public RegisteredBooksExecutor(List<Validator<T>> validators, HttpExecutor<T> httpExecutor) {
+        this.validators = validators;
+        this.httpExecutor = httpExecutor;
+    }
+
+    @Override
+    public List<Validator<T>> getValidators() {
+        List<Validator<T>> allValidators = new ArrayList<>();
+        allValidators.addAll(this.validators);
+        allValidators.addAll(this.httpExecutor.getValidators());
+        return allValidators;
+    }
+
+    @Override
+    public boolean canExecute(T context) {
+        return (context != null) && (httpExecutor != null) && httpExecutor.canExecute(context);
+    }
+
+    @Override
+    public void execute(T context) throws Exception {
+        try {
+
+            // context.setRequestBody(context.getRequestPayload().toJSONString());
+            context.setTimeoutSeconds(20);
+
+            this.httpExecutor.execute(context);
+
+            Object rawMessage = JSONValue.parse(context.getReturnedResponseBody());
+
+            if (rawMessage != null && rawMessage.getClass() == JSONObject.class) {
+                if (context.getReturnedHttpResponseCode() == 200) {
+
+                    JSONObject returnMessage = (JSONObject) rawMessage;
+                    context.setResponsePayload(new RegisteredBooksResponsePayload(returnMessage));
+                } else {
+                    JSONObject returnMessage = (JSONObject) rawMessage;
+                    context.setErrorResponsePayload(new ErrorResponse(returnMessage));
+                }
+            }
+        }   catch (Exception e){
+            System.out.print(e.getStackTrace());
+            System.out.print(e.getMessage());
+        }
+
+    }
+
+    @Inject
+    public void setValidators(List<Validator<RegisteredBooksContext>> validators) {
+        if (validators != null) {
+            this.validators.clear();
+            for (Validator<RegisteredBooksContext> validator : validators)
+                this.validators.add((Validator<T>) validator);
+        }
+    }
+
+    @Inject
+    public void setHttpExecutor(HttpExecutor<T> httpExecutor) {
+        this.httpExecutor = httpExecutor;
+    }
+}

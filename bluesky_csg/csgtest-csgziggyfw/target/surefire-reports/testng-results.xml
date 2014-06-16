@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="583" started-at="2014-02-11T08:45:11Z" finished-at="2014-02-11T08:45:11Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="583" started-at="2014-02-11T08:45:11Z" finished-at="2014-02-11T08:45:11Z">
+      <class name="com.pearson.qa.bluesky.csg.Tests">
+        <test-method status="PASS" signature="setUpInjector()[pri:0, instance:com.pearson.qa.bluesky.csg.Tests@57bf5ee7]" name="setUpInjector" is-config="true" duration-ms="407" started-at="2014-02-11T08:45:11Z" finished-at="2014-02-11T08:45:11Z">
+        </test-method>
+        <test-method status="PASS" signature="createCreateCollectionContextTest()[pri:0, instance:com.pearson.qa.bluesky.csg.Tests@57bf5ee7]" name="createCreateCollectionContextTest" duration-ms="124" started-at="2014-02-11T08:45:11Z" finished-at="2014-02-11T08:45:11Z">
+        </test-method>
+        <test-method status="PASS" signature="createCreateCollectionExecutionDriverTest()[pri:0, instance:com.pearson.qa.bluesky.csg.Tests@57bf5ee7]" name="createCreateCollectionExecutionDriverTest" duration-ms="14" started-at="2014-02-11T08:45:11Z" finished-at="2014-02-11T08:45:11Z">
+        </test-method>
+        <test-method status="PASS" signature="createLoginContextTest()[pri:0, instance:com.pearson.qa.bluesky.csg.Tests@57bf5ee7]" name="createLoginContextTest" duration-ms="17" started-at="2014-02-11T08:45:11Z" finished-at="2014-02-11T08:45:11Z">
+        </test-method>
+        <test-method status="PASS" signature="createLoginExecutionDriverTest()[pri:0, instance:com.pearson.qa.bluesky.csg.Tests@57bf5ee7]" name="createLoginExecutionDriverTest" duration-ms="6" started-at="2014-02-11T08:45:11Z" finished-at="2014-02-11T08:45:11Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

@@ -1,0 +1,34 @@
+<configuration>
+    <com>
+        <pearson>
+            <qa>
+                <bluesky>
+                <csg>
+                    <authentication>
+                        <common>
+                            <useTrustingHttpClient>true</useTrustingHttpClient>
+                        </common>
+                        <login>
+                            <contexts>
+                                <LoginContext>
+                                    <host>iqa.bluesky.lognllc.com</host>
+                                </LoginContext>
+                            </contexts>
+                        </login>
+                    </authentication>
+                    <collections>
+                        <createcollection>
+                            <contexts>
+                                <CreateCollectionContexts>
+                                    <host>iqa.bluesky.lognllc.com</host>
+                                </CreateCollectionContexts>
+                            </contexts>
+                        </createcollection>
+                    </collections>
+                </csg>
+                </bluesky>
+            </qa>
+        </pearson>
+    </com>
+</configuration>
+

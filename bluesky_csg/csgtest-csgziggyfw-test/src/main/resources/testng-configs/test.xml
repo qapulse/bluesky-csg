@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd">
+<suite name="UCE Suite">
+    <parameter name="username" value="logntest"/>
+    <parameter name="password" value="bed128365216c019988915ed3add75fb"/>
+    <parameter name="authSystem" value="sms"/>
+    <test name="UCE Test">
+        <classes>
+            <class name="com.pearson.qa.bluesky.csg.authentication.LoginTests"/>
+
+
+            <class name="com.pearson.qa.bluesky.csg.collections.CreateCollectionTests"/>
+
+            <class name="com.pearson.qa.bluesky.csg.books.BookBuildTest"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.GetCollectionNote"/>
+
+            <class name="com.pearson.qa.bluesky.csg.collections.DeleteCollectionNote"/>
+
+
+
+
+
+        </classes>
+        <groups>
+            <run>
+                <include name="authentication.login.success"/>
+
+                <include name="collection.createcollection"/>
+
+
+                <include name="books.bookBuild"/>
+
+
+            </run>
+        </groups>
+    </test>
+</suite>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd">
+<suite name="Bluesky CSG Automation Suite">
+    <parameter name="username" value="logntest"/>
+    <parameter name="password" value="bed128365216c019988915ed3add75fb"/>
+    <parameter name="authSystem" value="sms"/>
+    <test name="Bluesky CSG Automation Test">
+        <classes>
+
+            <!-- Login -->
+            <class name="com.pearson.qa.bluesky.csg.authentication.LoginTests"/>
+            <class name="com.pearson.qa.bluesky.csg.authentication.GetSessionTest"/>
+            <class name="com.pearson.qa.bluesky.csg.authentication.LoginAsTest"/>
+            <class name="com.pearson.qa.bluesky.csg.authentication.ProfileTest"/>
+
+            <!-- Collections -->
+            <class name="com.pearson.qa.bluesky.csg.collections.CreateCollectionTests"/>
+            <class name="com.pearson.qa.bluesky.csg.books.CreateOrderHeaderTest"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.ResourcesByCollectionTests"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.CollectionByStatusTests"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.UpdateCollectionTest"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.GetCollection"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.PlayCollection"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.CreateCollectionNote"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.GetCollectionNote"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.CollectionCover"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.GetCollectionNotes"/>
+
+            <class name="com.pearson.qa.bluesky.csg.collections.DeleteCollectionNote"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.UpdateResourcebyResourceInstance"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.CollectionChaptersTest"/>
+            <class name="com.pearson.qa.bluesky.csg.collections.DeleteCollectionChapter"/>
+
+            <!-- Books -->
+            <class name="com.pearson.qa.bluesky.csg.books.CreateOrderHeaderTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.CreateOrderDetailTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.CommitOrderDetailTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.OrderDetailStatusTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.BookPriceTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.ChapterPriceTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.ISBNByNumberOrStatusTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.BooksforCCCOrdersTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.RegisteredBooksTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.BookBuildTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.ReorderChaptersTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.RegisteredBooksTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.TerritoriesTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.SchoolByTerritoryTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.AuthorsBySchoolTests"/>
+            <class name="com.pearson.qa.bluesky.csg.books.SchoolTerritoryAssociationTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.GenerateSalesRepReportTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.ResourceMediaContentPrice"/>
+            <class name="com.pearson.qa.bluesky.csg.books.OplUrlTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.ApprovedISBNTests"/>
+            <class name="com.pearson.qa.bluesky.csg.books.OWRContentFeeTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.UpdateISBNStatusTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.ProcessCCCOrderTest"/>
+            <class name="com.pearson.qa.bluesky.csg.books.UpdateBookBuildTest"/>
+
+
+            <!-- Taxonomies -->
+            <class name="com.pearson.qa.bluesky.csg.taxonomies.taxonomies"/>
+            <class name="com.pearson.qa.bluesky.csg.taxonomies.CollectonByTaxonomyCourse"/>
+            <class name="com.pearson.qa.bluesky.csg.taxonomies.GetCollectionByISBN"/>
+
+
+            <!-- Users -->
+            <class name="com.pearson.qa.bluesky.csg.users.CreateResource"/>
+            <class name="com.pearson.qa.bluesky.csg.users.UserList"/>
+            <class name="com.pearson.qa.bluesky.csg.users.UserResources"/>
+            <class name="com.pearson.qa.bluesky.csg.users.UserCollectionByStatus"/>
+            <class name="com.pearson.qa.bluesky.csg.users.UserFavorites"/>
+            <class name="com.pearson.qa.bluesky.csg.users.GetUserFavorites"/>
+            <class name="com.pearson.qa.bluesky.csg.users.DeleteResource"/>
+
+
+            <!-- It must be at the end of the suite-->
+            <class name="com.pearson.qa.bluesky.csg.collections.DeleteCollection"/>
+            <class name="com.pearson.qa.bluesky.csg.authentication.LogoutTest"/>
+        </classes>
+        <groups>
+            <run>
+                <include name="authentication.login.success"/>
+                <include name="authentication.login.errors"/>
+                <include name="authentication.login.urlTest"/>
+                <include name="collection.createcollection"/>
+                <include name="authentication.loginAs"/>
+                <include name="authentication.profile"/>
+                <include name="books.territories"/>
+                <include name="books.SchoolByTerritoryTest"/>
+                <include name="books.authorsBySchool"/>
+                <include name="books.schoolTerritoryAssociation"/>
+                <include name="books.chapterPrice"/>
+                <include name="books.bookPrice"/>
+                <include name="books.createOrderHeader"/>
+                <include name="books.createOrderDetails"/>
+                <include name="books.CommitOrderDetailTest"/>
+                <include name="books.orderDetailStatus"/>
+                <include name="books.orderDetailStatusNegativesScenarios"/>
+                <include name="books.isbnByNumberOrStatus"/>
+                <include name="books.booksforCCCOrders"/>
+                <include name="collection.ResoucesByCollection"/>
+                <include name="collection.CollectionByStatus"/>
+                <include name="collection.UpdateCollection"/>
+                <include name="collection.GetCollection"/>
+                <include name="collection.PlayCollection"/>
+                <include name="books.booksforCCCOrders"/>
+                <include name="books.registeredBooks"/>
+                <include name="books.bookBuild"/>
+                <include name="books.bookRegistered"/>
+                <include name="books.reorderChapters"/>
+                <include name="books.generateSalesReport"/>
+                <include name="books.ResourceMediaContentPrice"/>
+                <include name="books.OplUrl"/>
+                <include name="collection.approvedISBN"/>
+                <include name="books.owrContentFee"/>
+                <include name="books.UpdateISBNStatus"/>
+                <include name="books.ProcessCCCOrder"/>
+                <include name="books.updateBookBuild"/>
+                <include name="collection.createCollectionNote"/>
+                <include name="collection.getCollectionNote"/>
+                <include name="collection.getCollectionNotes"/>
+                <include name="collection.collectionCover"/>
+                <include name="collection.deleteCollectionNote"/>
+                <include name="taxonomies.getTaxonomies"/>
+                <include name="taxonomies.getCollectionByTaxonomyCourse"/>
+                <include name="users.getUserResources"/>
+                <include name="users.userList"/>
+                <include name="users.createUserResources"/>
+                <include name="users.deleteUserResources"/>
+                <include name="users.userCollectionByStatus"/>
+                <include name="users.userFavorites"/>
+                <include name="users.getUserFavorites"/>
+                <include name="taxonomy.getCollectionByISBN"/>
+                <include name="collections.updateResourceByResourceInstance"/>
+                <include name="collections.collectionChapters"/>
+                <include name="collections.deletecollectionChapters"/>
+
+
+                <!-- It must be at the end of the suite-->
+                <include name="collection.deleteCollection"/>
+                <include name="authentication.logout"/>
+            </run>
+        </groups>
+    </test>
+</suite>
